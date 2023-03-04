@@ -105,8 +105,11 @@ const loadToolsDetails = async id =>{
     displayDetails(data.data);
 }
 
+
 const displayDetails = tool =>{
 console.log(tool);
+for(feature in tool.features){
+    document.createElement('li')}
 const modalTitle = document.getElementById('modal-body-section');
 modalTitle.innerHTML = `
 <div class="container width-full d-flex">
@@ -119,9 +122,9 @@ modalTitle.innerHTML = `
             <div></div>
         </div>
         <ul>
-            <li>${tool.features.id}</li>
-            <li>${tool.features.id}</li>
-            <li>${tool.features.id}</li>
+            <li>${tool.feature}</li>
+            <li>${tool.feature}</li>
+            <li>${tool.feature}</li>
         </ul>
     
     </div>
