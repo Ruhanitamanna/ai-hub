@@ -20,7 +20,7 @@ const gettingUrl = async() =>{
    sortButton.addEventListener('click',function(){
     const toolsArray = [tools.published_in
     ]
-    // console.log('toolsArray')
+    console.log('toolsArray')
    })
 
 
