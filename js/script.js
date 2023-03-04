@@ -11,9 +11,10 @@ const gettingUrl = async() =>{
 // display tools
  const displayTools = tools =>{
    const toolsContainer = document.getElementById('ai-container');
-//    toolsContainer.textContent = '';
+   toolsContainer.textContent = '';
+   tools = tools.slice(0,6);
 
-tools = tools.slice(0,6)
+
 // making cards
 
    tools.forEach( tool => {
@@ -32,10 +33,11 @@ tools = tools.slice(0,6)
     
     const btn = document.createElement('button')
     btn.setAttribute('type','button');
-    btn.setAttribute('class','btn btn-primary');
-    btn.innerHTML = `Modal`;
+    btn.setAttribute('class','btn btn-light');
+    // btn.innerText = <i class="fa-solid fa-arrow-right"></i>;
     btn.addEventListener('click',function(){
-        console.log('btn clicked');
+        console.log('clicked')
+        
     })
     toolDiv.innerHTML = `
     <div class="card p-4">
@@ -50,9 +52,13 @@ tools = tools.slice(0,6)
                       </ol>
                      <div class = "border-top">
                      <h5 class="card-title">${tool.name}</h5>
-                     <div>
-                     <i class = "fas fa-star"></i>
+                     <div class=" d-flex justify-content-between">
+                     <div class="d-flex ">
+                     <i class="fa-solid fa-calendar-days"></i>
                      <p class="card-text">${tool.published_in}</p> 
+                     </div>
+
+                     <button type="button" class="btn btn-light">${btn}<i class="fa-solid fa-arrow-right"></i></button>
                      </div>
                      </div>
                     </div>
@@ -61,12 +67,27 @@ tools = tools.slice(0,6)
 
                    
                   toolDiv.appendChild(featureList);   
-        toolsContainer.appendChild (toolDiv);      
+        toolsContainer.appendChild (toolDiv);  
+            // stop spinner
+          
    }) 
 
+   toggleSpinner(false);
    document.getElementById('btn-see-more').addEventListener('click',function(){
-
+    // start loader
+    toggleSpinner(true);
+    
    })
+
+   const toggleSpinner = isLoading =>{
+    const loaderSection = document.getElementById('loader');
+    if(isLoading){
+        loaderSection.classList.remove('d-none')
+    }
+    else{
+        loaderSection.classList.add('d-none');
+    }
+   }
 }
 
 gettingUrl()
