@@ -14,6 +14,13 @@ const gettingUrl = async() =>{
    toolsContainer.textContent = '';
    tools = tools.slice(0,6);
 
+   const sortButton = document.getElementById('sort-button');
+   sortButton.addEventListener('click',function(){
+    const toolsArray = [tools.published_in
+    ]
+    // console.log('toolsArray')
+   })
+
 
 // making cards
 
@@ -28,17 +35,17 @@ const gettingUrl = async() =>{
         li.textContent=item[i];
         featureList.appendChild(li);
     }
+    // feature list ended 
     
     
-    
+    // modal button 
     const btn = document.createElement('button')
     btn.setAttribute('type','button');
     btn.setAttribute('class','btn btn-light');
-    // btn.innerText = <i class="fa-solid fa-arrow-right"></i>;
     btn.addEventListener('click',function(){
-        console.log('clicked')
-        
+        console.log('clicked');    
     })
+    // card section 
     toolDiv.innerHTML = `
     <div class="card p-4">
                     <img src="${tool.image}" class="card-img-top" alt="...">
@@ -48,7 +55,7 @@ const gettingUrl = async() =>{
                       <li>${tool.features[0]}</li>
                       <li>${tool.features[1]}</li>
                       <li>${tool.features[2]}</li>
-                      <li>${tool.features[3]}</li>
+                      <li>${tool.features[3]? features: 'No data found'}</li>
                       </ol>
                      <div class = "border-top">
                      <h5 class="card-title">${tool.name}</h5>
@@ -58,27 +65,26 @@ const gettingUrl = async() =>{
                      <p class="card-text">${tool.published_in}</p> 
                      </div>
 
-                     <button type="button" class="btn btn-light">${btn}<i class="fa-solid fa-arrow-right"></i></button>
+                     
+                     <button onclick="loadToolsDetails(${tool.id})" href="#" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal">More</button>
                      </div>
                      </div>
                     </div>
-                  </div>`;
-                  
-
-                   
+                  </div>`;       
                   toolDiv.appendChild(featureList);   
         toolsContainer.appendChild (toolDiv);  
             // stop spinner
           
    }) 
-
-   toggleSpinner(false);
+//    see more button section
    document.getElementById('btn-see-more').addEventListener('click',function(){
+    displayTools(tools.tool)
     // start loader
     toggleSpinner(true);
-    
-   })
+    toggleSpinner(false);
+})
 
+// spinner condition
    const toggleSpinner = isLoading =>{
     const loaderSection = document.getElementById('loader');
     if(isLoading){
@@ -90,4 +96,15 @@ const gettingUrl = async() =>{
    }
 }
 
+const loadToolsDetails = async id =>{
+    const url = ` https://openapi.programming-hero.com/api/ai/tool/01`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayDetails(data.data);
+}
+const displayDetails = tool =>{
+console.log(tool);
+const modalTitle = document.getElementById('exampleModalLabel');
+modalTitle.innerText = tool. tool_name
+}
 gettingUrl()

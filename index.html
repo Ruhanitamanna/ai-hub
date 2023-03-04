@@ -12,7 +12,8 @@
     <!-- HEADER SECTION -->
     <header class="text-center mt-3">
     <h1>AI Universe Hub</h1>
-    <button type="button" class="btn btn-danger">Sort By Date</button>
+    <!-- sorting button -->
+    <button id="sort-button" type="button" class="btn btn-danger">Sort By Date</button>
 </header>
  <!-- HEADER SECTION ENDS-->
  <!-- MAIN SECTION -->
@@ -20,7 +21,7 @@
     <section>
             <!-- cards -->
             <div id="ai-container" class="row row-cols-1 row-cols-md-3 g-4">  
-                <!-- <ol id="feature-list"></ol> -->
+                
               </div>
               
             <!-- cards -->
@@ -31,6 +32,48 @@
               <span class="visually-hidden">Loading...</span>
             </div>
           </div>
+    </section>
+    <!-- modal -->
+    <section>
+        <!-- Button trigger modal -->
+
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+          <div class="container width-full d-flex">
+            <!-- modal first card  -->
+            <div class="card" style="width: auto;">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">An item</li>
+                  <li class="list-group-item">A second item</li>
+                  <li class="list-group-item">A third item</li>
+                </ul>
+              </div>
+            <div class="card" style="width: auto;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+
+          </div>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
     </section>
  </main>
  <footer class="text-center mt-5">
