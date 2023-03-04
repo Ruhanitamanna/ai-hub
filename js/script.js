@@ -8,6 +8,8 @@ const gettingUrl = async() =>{
 
 }
 
+
+
 // display tools
  const displayTools = tools =>{
    const toolsContainer = document.getElementById('ai-container');
@@ -117,13 +119,19 @@ modalTitle.innerHTML = `
             <div></div>
         </div>
         <ul>
-            <li>${tool.features}}</li>
-            <li>$}</li>
-            <li>$}</li>
+            <li>${tool.features.id}</li>
+            <li>${tool.features.id}</li>
+            <li>${tool.features.id}</li>
         </ul>
     
     </div>
-    <div></div>
+    <div>
+    <div class="card" style=";">
+  <img src="${tool.image_link[0]}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div></div>
 </div>
 <div></div>
 
