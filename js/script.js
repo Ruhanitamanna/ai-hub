@@ -102,9 +102,35 @@ const loadToolsDetails = async id =>{
     const data = await res.json();
     displayDetails(data.data);
 }
+
 const displayDetails = tool =>{
 console.log(tool);
-const modalTitle = document.getElementById('exampleModalLabel');
-modalTitle.innerText = tool. tool_name
+const modalTitle = document.getElementById('modal-body-section');
+modalTitle.innerHTML = `
+<div class="container width-full d-flex">
+<div>
+    <div>
+        <p>${tool.description}<p/>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul>
+            <li>${tool.features}}</li>
+            <li>$}</li>
+            <li>$}</li>
+        </ul>
+    
+    </div>
+    <div></div>
+</div>
+<div></div>
+
+
+
+</div>`
+
+
 }
 gettingUrl()
