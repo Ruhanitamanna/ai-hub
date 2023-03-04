@@ -132,7 +132,9 @@ modalTitle.innerHTML = `
     <div class="card" style=";">
   <img src="${tool.image_link[0]}" class="card-img-top" alt="...">
   <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <h3>${tool.input_output_examples[0]} </h3>
+    <p class="card-text">${tool.input_output_examples[0]
+    }</p>
   </div>
 </div></div>
 </div>
