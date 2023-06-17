@@ -1,0 +1,24 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sorted Data</title>
+</head>
+<body>
+  <div id="sorted-container"></div>
+
+  <script>
+    // Retrieve the sorted data from localStorage
+    const sortedData = JSON.parse(localStorage.getItem('sortedToolsData'));
+
+    // Render the sorted data on the page
+    const sortedContainer = document.getElementById('sorted-container');
+    sortedData.forEach((tool) => {
+      const toolDiv = document.createElement('div');
+      toolDiv.textContent = tool.name;
+      sortedContainer.appendChild(toolDiv);
+    });
+  </script>
+</body>
+</html>
